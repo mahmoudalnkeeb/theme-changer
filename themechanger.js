@@ -1,13 +1,12 @@
-function createOverlay(overlayStyle, btns, target) {
+function createOverlay(btns, target) {
   target.style.position = 'relative';
   let overlay = document.createElement('div');
-  let styles = overlayStyle
-  overlay.setAttribute('style', styles);
+  overlay.classList.add('theme-changer-overlay');
   btns.forEach((btn) => overlay.appendChild(btn));
   return overlay;
 }
 
-function createBtns(themes , style) {
+function createBtns(themes, style) {
   let btns = [];
   themes.forEach((theme) => {
     let button = document.createElement('button');
@@ -18,7 +17,7 @@ function createBtns(themes , style) {
     button.style.color = theme.btnClr;
     btns.push(button);
   });
-  style(themes)
+  style(themes);
   return btns;
 }
 
@@ -55,13 +54,13 @@ function appendVarsToStyle(themes) {
  *
  * @param {themes}  themes
  * @param {overlayStyle}  overlayStyles
- * 
+ *
  */
 
 function themeChanger(themes, overlayStyles) {
   let overlay = createOverlay;
   let evTobtns = changeOnClick;
   let btns = createBtns;
-  let style = appendVarsToStyle
-  return (x) => overlay(overlayStyles, evTobtns(x, btns(themes , style)), x);
+  let style = appendVarsToStyle;
+  return (x) => overlay(evTobtns(x, btns(themes, style)), x);
 }
