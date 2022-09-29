@@ -57,7 +57,7 @@ function appendVarsToStyle(themes) {
  *
  */
 
-function themeChanger(themes, overlayStyles) {
+function themeChanger(themes) {
   let overlay = createOverlay;
   let evTobtns = changeOnClick;
   let btns = createBtns;
